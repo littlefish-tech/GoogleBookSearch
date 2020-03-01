@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Button from "../components/Button";
+// import Button from "../components/Button";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
 class Search extends Component {
@@ -32,6 +32,7 @@ class Search extends Component {
         this.setState({
           [name]: value
         });
+        // console.log("changed")
       };
     handleFormSubmit = event => {
     event.preventDefault();
@@ -44,17 +45,18 @@ class Search extends Component {
         .then(res => this.loadBooks())
         .catch(err => console.log(err));
     }
+    console.log("clicked!!!!!!")
     };
 
-    handleSearch = event => {
+    // handleSearch = event => {
 
-    }
+    // }
 
     render() {
       return (
         <Container fluid>
           <Row>
-            <Col size="md-6">
+            <Col size="md-12">
               <Jumbotron>
                 <h1>What Books Should I Read?</h1>
               </Jumbotron>
@@ -84,27 +86,6 @@ class Search extends Component {
                   Submit Book
                 </FormBtn>
               </form>
-            </Col>
-            <Col size="md-6 sm-12">
-              <Jumbotron>
-                <h1>Books On My List</h1>
-              </Jumbotron>
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map(book => (
-                    <ListItem key={book._id}>
-                      <Link to={"/books/" + book._id}>
-                        <strong>
-                          {book.title} by {book.author}
-                        </strong>
-                      </Link>
-                      <Button onClick={() => this.deleteBook(book._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
             </Col>
           </Row>
         </Container>
