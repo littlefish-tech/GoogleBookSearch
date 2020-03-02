@@ -4,29 +4,30 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { SearchedBookList, SearchedBookListItem } from "../components/SearchedBookList";
 import { Input, TextArea, FormBtn } from "../components/Form";
-import { SearchedBookList } from "../components/SearchedBookList";
+// import { SearchedBookList } from "../components/SearchedBookList";
 
 class Search extends Component {
     state = {
       books: [],
+      bookSearch: "",
       title: "",
       author: "",
       synopsis: ""
     };
 
-    componentDidMount() {
-        this.loadBooks();
-      }
+    // componentDidMount() {
+    //     this.loadBooks();
+    //   }
 
-    loadBooks = () => {
-    API.getBooks()
-        .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-        )
-        .catch(err => console.log(err));
-    };
+    // loadBooks = () => {
+    // API.getBooks()
+    //     .then(res =>
+    //     this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+    //     )
+    //     .catch(err => console.log(err));
+    // };
     
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -38,12 +39,14 @@ class Search extends Component {
     handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.author) {
-        API.saveBook({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-        })
-        .then(res => this.loadBooks())
+        API.getBooks(this.state.bookSearch)
+          // ({
+        // title: this.state.title,
+        // author: this.state.author,
+        // synopsis: this.state.synopsis
+        
+        // })
+        .then(res => this.setState({ books: res.data }))
         .catch(err => console.log(err));
     }
     console.log("clicked!!!!!!")
@@ -91,8 +94,8 @@ class Search extends Component {
           </Row>
           <Row>
             <Col size="xs-12">
-              {!this.state.recipes.length ? (
-                <h1 className="text-center">No Recipes to Display</h1>
+              {!this.state.books.length ? (
+                <h1 className="text-center">No Books to Display</h1>
               ) : (
                   <SearchedBookList>
                     {this.state.books.map(data => {
