@@ -38,16 +38,21 @@ class Search extends Component {
       };
     handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.author) {
-        API.getBooks(this.state.bookSearch)
+    if (this.state.title) {
+      console.log(this.state.title);
+      console.log('***************');
+        API.searchGoogle(this.state.title)
           // ({
         // title: this.state.title,
         // author: this.state.author,
         // synopsis: this.state.synopsis
         
         // })
-        .then(res => this.setState({ books: res.data }))
-        .catch(err => console.log(err));
+        .then(res => {
+         // console.log(res);
+          console.log(res.data.items)
+          this.setState({books: res.data.items})
+        }).catch(err => console.log(err));
     }
     console.log("clicked!!!!!!")
     };
@@ -71,20 +76,9 @@ class Search extends Component {
                   name="title"
                   placeholder="Title (required)"
                 />
-                <Input
-                  value={this.state.author}
-                  onChange={this.handleInputChange}
-                  name="author"
-                  placeholder="Author (required)"
-                />
-                <TextArea
-                  value={this.state.synopsis}
-                  onChange={this.handleInputChange}
-                  name="synopsis"
-                  placeholder="Synopsis (Optional)"
-                />
+             
                 <FormBtn
-                  disabled={!(this.state.author && this.state.title)}
+                  disabled={!(this.state.title)}
                   onClick={this.handleFormSubmit}
                 >
                   Submit Book
@@ -101,10 +95,11 @@ class Search extends Component {
                     {this.state.books.map(data => {
                       return (
                         <SearchedBookListItem
-                          key={data.book.label}
-                          title={data.book.label}
-                          href={data.book.url}
-                          thumbnail={data.recipe.image}
+                          key={data.volumeInfo.title}
+                          title={data.volumeInfo.title}
+                          thumbnail={"https://via.placeholder.com/150"}
+
+                      
                         />
                       );
                     })}
