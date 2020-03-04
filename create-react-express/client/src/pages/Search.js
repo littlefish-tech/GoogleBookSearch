@@ -4,7 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { SearchedBookList, SearchedBookListItem } from "../components/SearchedBookList";
+import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/SearchedBookList";
 import { Input, TextArea, FormBtn } from "../components/Form";
 // import { SearchedBookList } from "../components/SearchedBookList";
 
@@ -13,21 +13,23 @@ class Search extends Component {
       books: [],
       bookSearch: "",
       title: "",
-      author: "",
-      synopsis: ""
+      authors: "",
+      synopsis: "",
+      publishedDate: "",
+      saveBookArr: []
     };
 
     // componentDidMount() {
     //     this.loadBooks();
     //   }
 
-    // loadBooks = () => {
-    // API.getBooks()
-    //     .then(res =>
-    //     this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-    //     )
-    //     .catch(err => console.log(err));
-    // };
+    loadBooks = () => {
+    API.getBook()
+        .then(res =>
+        this.setState({ books: res.data.items, title: "", authors: "", publishedDate: "" })
+        )
+        .catch(err => console.log(err));
+    };
     
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -57,9 +59,17 @@ class Search extends Component {
     console.log("clicked!!!!!!")
     };
 
-    // handleSearch = event => {
-
-    // }
+    handleSaveSubmit = event => {
+      event.preventDefault();
+      API.saveBook(
+        this.state.title,
+        this.state.authors,
+        this.state.publishedDate
+      )
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+      console.log("saved!!!!!!")
+    };
 
     render() {
       return (
@@ -92,17 +102,20 @@ class Search extends Component {
                 <h1 className="text-center">No Books to Display</h1>
               ) : (
                   <SearchedBookList>
-                    {this.state.books.map(data => {
+                    {this.state.books.map((data, index) => {
                       return (
-                        <SearchedBookListItem
-                          key={data.volumeInfo.title}
+                          <SearchedBookListItem
+                          key={index}
                           title={data.volumeInfo.title}
-                          thumbnail={"https://via.placeholder.com/150"}
-
-                      
-                        />
-                      );
+                          authors={data.volumeInfo.authors}
+                          publishedDate = {data.volumeInfo.publishedDate}
+                          // thumbnail={"https://via.placeholder.com/150"}
+                          onClick={this.handleSaveSubmit}
+                          />  
+                                       
+                      ); 
                     })}
+                        {/* <SaveBtn onClick = {this.handleSaveSubmit}>Save</SaveBtn> */}
                   </SearchedBookList>
                 )}
             </Col>
