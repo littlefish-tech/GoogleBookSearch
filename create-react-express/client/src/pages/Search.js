@@ -60,6 +60,7 @@ class Search extends Component {
     };
 
     handleSaveSubmit = event => {
+      console.log("saved!!!!!!")
       event.preventDefault();
       API.saveBook(
         this.state.title,
@@ -68,7 +69,7 @@ class Search extends Component {
       )
       .then(res => this.loadBooks())
       .catch(err => console.log(err));
-      console.log("saved!!!!!!")
+      
     };
 
     render() {
