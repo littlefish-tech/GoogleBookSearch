@@ -14,6 +14,8 @@ class Saved extends Component {
       author: "",
       synopsis: ""
     };
+
+    
 render() {
     return (
         <Container fluid>

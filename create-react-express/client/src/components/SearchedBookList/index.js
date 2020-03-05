@@ -1,13 +1,20 @@
 import React from "react";
-import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 import { PromiseProvider } from "mongoose";
 
 
+// export function SaveBtn(props) {
+//   return (
+//   <button className = "save-btn" role = "button">{props.children}</button>
+//   )
+// }
+
 export function SaveBtn(props) {
   return (
-  <button className = "save-btn" onClick={props.onClick} role = "button">{props.children}</button>
-  )
+    <button {...props} style={{ float: "left", marginBottom: 10 }} className="btn btn-success">
+      {props.children}
+    </button>
+  );
 }
 // BookList renders a bootstrap list item
 export function SearchedBookList({ children }) {
@@ -19,7 +26,7 @@ export function SearchedBookListItem({
   // thumbnail = "https://placehold.it/300x300",
   title,
   publishedDate,
-  authors,
+  authors
 }) 
 // function handleClickSave() {
 //   console.log(this)
@@ -38,7 +45,7 @@ export function SearchedBookListItem({
             <h5>Authors: {authors}</h5>
             <h5>Year: {publishedDate}</h5>
             {/* <div>{thumbnail}</div> */}
-            <SaveBtn>Save</SaveBtn>
+        {/* <SaveBtn>Save</SaveBtn> */}
           </Col>
         </Row>
       </Container>

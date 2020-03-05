@@ -105,22 +105,27 @@ class Search extends Component {
                   <SearchedBookList>
                     {this.state.books.map((data, index) => {
                       return (
+                        <React.Fragment>
                           <SearchedBookListItem
                           key={index}
                           title={data.volumeInfo.title}
                           authors={data.volumeInfo.authors}
                           publishedDate = {data.volumeInfo.publishedDate}
                           // thumbnail={"https://via.placeholder.com/150"}
-                          onClick={this.handleSaveSubmit}
-                          />  
-                                       
+                          
+                          />    
+                          <SaveBtn onClick = {this.handleSaveSubmit}>Save</SaveBtn>  
+                          </React.Fragment>     
                       ); 
+                     
                     })}
-                        {/* <SaveBtn onClick = {this.handleSaveSubmit}>Save</SaveBtn> */}
+                        
                   </SearchedBookList>
+                  
                 )}
             </Col>
           </Row>
+     
         </Container>
       );
     }
