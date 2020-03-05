@@ -26,7 +26,7 @@ class Search extends Component {
     loadBooks = () => {
     API.getBook()
         .then(res =>
-        this.setState({ books: res.data.items, title: "", authors: "", publishedDate: "" })
+        this.setState({ books: res.data, title: "", authors: "", publishedDate: "" })
         )
         .catch(err => console.log(err));
     };
@@ -54,20 +54,22 @@ class Search extends Component {
          // console.log(res);
           console.log(res.data.items)
           this.setState({books: res.data.items})
+          console.log(this.state.books)
         }).catch(err => console.log(err));
     }
     console.log("clicked!!!!!!")
     };
 
-    handleSaveSubmit = event => {
+    handleSaveSubmit = id => {
       console.log("saved!!!!!!")
-      event.preventDefault();
-      API.saveBook(
-        this.state.title,
-        this.state.authors,
-        this.state.publishedDate
-      )
-      .then(res => this.loadBooks())
+      const book = this.state.books.find(book => book.id === id)
+      console.log(book)
+      API.saveBook({
+        title: book.title,
+        authors: book.authors,
+        publishedDate: book.publishedDate
+      })
+      // .then(() => this.loadBooks())
       .catch(err => console.log(err));
       
     };
@@ -103,18 +105,18 @@ class Search extends Component {
                 <h1 className="text-center">No Books to Display</h1>
               ) : (
                   <SearchedBookList>
-                    {this.state.books.map((data, index) => {
+                    {this.state.books.map(data => {
                       return (
                         <React.Fragment>
                           <SearchedBookListItem
-                          key={index}
+                          key={data.id}
                           title={data.volumeInfo.title}
                           authors={data.volumeInfo.authors}
                           publishedDate = {data.volumeInfo.publishedDate}
                           // thumbnail={"https://via.placeholder.com/150"}
                           
                           />    
-                          <SaveBtn onClick = {this.handleSaveSubmit}>Save</SaveBtn>  
+                          <SaveBtn onClick = {() => this.handleSaveSubmit(data.id)}>Save</SaveBtn>  
                           </React.Fragment>     
                       ); 
                      
