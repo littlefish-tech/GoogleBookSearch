@@ -49,14 +49,17 @@ render() {
                 {this.state.saveBookArr.map(book => {
                   return(
                   <ListItem key={book._id}>
-                    <a href={book.bookLink}>
+                    {/* <a href={book.bookLink}> */}
                       <strong>
                       <img src={book.image}></img>
-                      <div>{book.title}</div>
-                     <div>{book.authors}</div>
-                      <div>{book.publishedDate}</div>
+                      <div>Book Name:    {book.title}</div>
+                     <div>Author:    {book.authors}</div>
+                      <div>Published Year:    {book.publishedDate}</div>
+                      <div>Description:  </div>
+                      <div>{book.description}</div>
+                      <a href={book.bookLink}> Read More</a>
                       </strong>
-                    </a>
+                    {/* </a> */}
                   </ListItem>
                   )}     
                 )}

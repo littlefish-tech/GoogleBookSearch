@@ -26,8 +26,10 @@ export function SearchedBookListItem({
   image,
   title,
   publishedDate,
-  authors
-}) 
+  authors,
+  bookLink,
+  description
+})
 // function handleClickSave() {
 //   console.log(this)
 // }
@@ -43,6 +45,9 @@ export function SearchedBookListItem({
             <h5>Book Name: {title}</h5>
             <h5>Authors: {authors}</h5>
             <h5>Year: {publishedDate}</h5>
+            <h5><div>Description: </div>
+            <div>{description}</div></h5>
+            <a href={bookLink}> Read More</a>
             {/* <div>{thumbnail}</div> */}
         {/* <SaveBtn>Save</SaveBtn> */}
           </Col>
