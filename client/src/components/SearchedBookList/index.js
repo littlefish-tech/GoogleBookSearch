@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "../Grid";
 import { PromiseProvider } from "mongoose";
 
-
 // export function SaveBtn(props) {
 //   return (
 //   <button className = "save-btn" role = "button">{props.children}</button>
@@ -11,7 +10,7 @@ import { PromiseProvider } from "mongoose";
 
 export function SaveBtn(props) {
   return (
-    <button {...props} style={{ float: "left", marginBottom: 10 }} className="btn btn-success">
+    <button {...props} style={{ float: "left", width: 60, marginBottom: 10 }} className="btn btn-success">
       {props.children}
     </button>
   );
@@ -37,11 +36,9 @@ export function SearchedBookListItem({
     <li className="list-group-item">
       <Container>
         <Row>
-          {/* <Col size="xs-4 sm-2">
-            <Thumbnail src={thumbnail} />
-          </Col> */}
-          <Col size="xs-8 sm-9">
-            <h3>{title}</h3>
+          {/* <Col size="xs-4 sm-2"> */}
+          <Col size="lg-12 md-12 sm-12">
+            <h5>Book Name: {title}</h5>
             <h5>Authors: {authors}</h5>
             <h5>Year: {publishedDate}</h5>
             {/* <div>{thumbnail}</div> */}

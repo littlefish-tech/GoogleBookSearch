@@ -5,45 +5,73 @@ import Jumbotron from "../components/Jumbotron";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
+import API from "../utils/API";
+import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/SearchedBookList";
+import Search from "./Search"
 // import { Input, TextArea, FormBtn } from "../components/Form";
+// import { handleDisplayBooks } from "../components/saveBookList"; 
+
 
 class Saved extends Component {
-    state = {
-      books: [],
-      title: "",
-      author: "",
-      synopsis: ""
-    };
+    state={
+      saveBookArr: []
+  }
 
+// handleDisplayBooks = () => {
+//   API.getBooks()
+//   .then(res => <ChildComponent {...this.setState({ saveBookArr: res.data, title: "", authors: "", publishedDate: ""})}/>)
+//   console.log(this.state.saveBookArr)
+//   .catch(err => console.log(err));
+//   console.log("test");
+// }
+
+componentDidMount() {
+  API.getBook()
+  .then(res => this.setState({ saveBookArr: res.data}))
+  console.log(this.state.saveBookArr)
+  .catch(err => console.log(err));
+  console.log("test");
+}
     
 render() {
     return (
+    
         <Container fluid>
             <Row>
             <Col size="sm-12">
               <Jumbotron>
                 <h1>Books On My List</h1>
               </Jumbotron>
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map(book => (
-                    <ListItem key={book._id}>
-                      <Link to={"/books/" + book._id}>
-                        <strong>
-                          {book.title} by {book.author}
-                        </strong>
-                      </Link>
-                      <Button onClick={() => this.deleteBook(book._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
+              <Row>
+          <Col size="md-12">
+          {this.state.saveBookArr.length ? (
+          <List>
+                {this.state.saveBookArr.map(book => {
+                  return(
+                  <ListItem key={book._id}>
+                    <Link to={"/saved"}>
+                      <strong>
+                      <div>{book.title}</div>
+                     <div>{book.authors}</div>
+                      <div>{book.publishedDate}</div>
+                      </strong>
+                    </Link>
+                  </ListItem>
+                  )}     
+                )}
+              </List>
+          ):(
+            <h5>No Book to display</h5>
+          )}
+          </Col>
+          </Row>
             </Col>
             </Row>
+
         </Container>
-    )
+      
+      
+    );
 }
 
 

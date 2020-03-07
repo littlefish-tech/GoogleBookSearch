@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand btn-outline-info clickBut" href="/Saved">

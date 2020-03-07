@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/books/google/" + bookTitle );
   },
 
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  getBook: function() {
+    return axios.get("/api/books/");
   },
 
   saveBook: function(bookData) {

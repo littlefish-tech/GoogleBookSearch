@@ -7,29 +7,34 @@ import { Col, Row, Container } from "../components/Grid";
 import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/SearchedBookList";
 import { Input, TextArea, FormBtn } from "../components/Form";
 // import { SearchedBookList } from "../components/SearchedBookList";
+import Saved from "./Saved"
+import { List, ListItem } from "../components/List";
+import { Link } from "react-router-dom";
 
-class Search extends Component {
-    state = {
+class Search extends React.Component {
+  constructor(){
+    super();
+      this.state = {
       books: [],
-      bookSearch: "",
+      // bookSearch: "",
       title: "",
       authors: "",
-      synopsis: "",
+      // synopsis: "",
       publishedDate: "",
       saveBookArr: []
     };
-
+  }
     // componentDidMount() {
     //     this.loadBooks();
     //   }
 
-    loadBooks = () => {
-    API.getBook()
-        .then(res =>
-        this.setState({ books: res.data, title: "", authors: "", publishedDate: "" })
-        )
-        .catch(err => console.log(err));
-    };
+    // loadBooks = () => {
+    // API.getBook()
+    //     .then(res =>
+    //     this.setState({ books: res.data, title: "", authors: "", publishedDate: "" })
+    //     )
+    //     .catch(err => console.log(err));
+    // };
     
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -63,19 +68,28 @@ class Search extends Component {
     handleSaveSubmit = id => {
       console.log("saved!!!!!!")
       const book = this.state.books.find(book => book.id === id)
-      console.log(book)
+      console.log("this is the new book ", book)
+      this.setState({saveBookArr: [...this.state.saveBookArr, {
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors[0],
+        publishedDate: book.volumeInfo.publishedDate
+      }]})
+      console.log(this.state.saveBookArr);
       API.saveBook({
-        title: book.title,
-        authors: book.authors,
-        publishedDate: book.publishedDate
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors[0],
+        publishedDate: book.volumeInfo.publishedDate
       })
       // .then(() => this.loadBooks())
       .catch(err => console.log(err));
       
     };
 
+  
+
     render() {
       return (
+        
         <Container fluid>
           <Row>
             <Col size="md-12">
@@ -99,6 +113,7 @@ class Search extends Component {
               </form>
             </Col>
           </Row>
+          
           <Row>
             <Col size="xs-12">
               {!this.state.books.length ? (
@@ -107,28 +122,31 @@ class Search extends Component {
                   <SearchedBookList>
                     {this.state.books.map(data => {
                       return (
-                        <React.Fragment>
+                        <React.Fragment key={data._id}>
                           <SearchedBookListItem
-                          key={data.id}
+                          
                           title={data.volumeInfo.title}
                           authors={data.volumeInfo.authors}
                           publishedDate = {data.volumeInfo.publishedDate}
                           // thumbnail={"https://via.placeholder.com/150"}
                           
                           />    
-                          <SaveBtn onClick = {() => this.handleSaveSubmit(data.id)}>Save</SaveBtn>  
+                          <SaveBtn onClick = {() => this.handleSaveSubmit(data.id)}>
+                            Save
+                          </SaveBtn>
+                          {/* <Saved saveBookArr={this.state.saveBookArr}></Saved>   */}
                           </React.Fragment>     
                       ); 
                      
                     })}
-                        
                   </SearchedBookList>
                   
                 )}
             </Col>
           </Row>
-     
+       
         </Container>
+  
       );
     }
 
