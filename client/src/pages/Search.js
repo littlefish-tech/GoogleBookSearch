@@ -11,10 +11,11 @@ import Saved from "./Saved"
 import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
 
-class Search extends React.Component {
-  constructor(){
-    super();
-      this.state = {
+class Search extends Component {
+  // constructor(){
+  //   super();
+  //     this.
+      state = {
       books: [],
       // bookSearch: "",
       title: "",
@@ -23,7 +24,7 @@ class Search extends React.Component {
       publishedDate: "",
       saveBookArr: []
     };
-  }
+  // }
     // componentDidMount() {
     //     this.loadBooks();
     //   }
@@ -69,12 +70,12 @@ class Search extends React.Component {
       console.log("saved!!!!!!")
       const book = this.state.books.find(book => book.id === id)
       console.log("this is the new book ", book)
-      this.setState({saveBookArr: [...this.state.saveBookArr, {
-        title: book.volumeInfo.title,
-        authors: book.volumeInfo.authors[0],
-        publishedDate: book.volumeInfo.publishedDate
-      }]})
-      console.log(this.state.saveBookArr);
+      // this.setState({saveBookArr: [...this.state.saveBookArr, {
+      //   title: book.volumeInfo.title,
+      //   authors: book.volumeInfo.authors[0],
+      //   publishedDate: book.volumeInfo.publishedDate
+      // }]})
+      // console.log(this.state.saveBookArr);
       API.saveBook({
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors[0],

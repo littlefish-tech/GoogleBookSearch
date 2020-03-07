@@ -29,8 +29,8 @@ componentDidMount() {
   API.getBook()
   .then(res => this.setState({ saveBookArr: res.data}))
   console.log(this.state.saveBookArr)
-  .catch(err => console.log(err));
-  console.log("test");
+  // .catch(err => console.log(err));
+  // console.log("test");
 }
     
 render() {
