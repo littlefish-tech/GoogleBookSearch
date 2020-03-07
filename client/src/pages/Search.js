@@ -23,6 +23,7 @@ class Search extends Component {
       image: "",
       // synopsis: "",
       publishedDate: "",
+      bookLink: "",
       saveBookArr: []
     };
   // }
@@ -81,7 +82,8 @@ class Search extends Component {
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors[0],
         publishedDate: book.volumeInfo.publishedDate,
-        image: book.volumeInfo.imageLinks.thumbnail
+        image: book.volumeInfo.imageLinks.thumbnail,
+        bookLink: book.volumeInfo.infoLink
       })
       // .then(() => this.loadBooks())
       .catch(err => console.log(err));
