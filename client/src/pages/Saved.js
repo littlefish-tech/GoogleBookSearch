@@ -51,6 +51,7 @@ render() {
                   <ListItem key={book._id}>
                     <Link to={"/saved"}>
                       <strong>
+                      <img src={book.image}></img>
                       <div>{book.title}</div>
                      <div>{book.authors}</div>
                       <div>{book.publishedDate}</div>

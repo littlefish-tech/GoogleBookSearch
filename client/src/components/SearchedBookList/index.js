@@ -23,6 +23,7 @@ export function SearchedBookList({ children }) {
 // BookListItem renders a bootstrap list item containing data from the book api call
 export function SearchedBookListItem({
   // thumbnail = "https://placehold.it/300x300",
+  image,
   title,
   publishedDate,
   authors
@@ -38,6 +39,7 @@ export function SearchedBookListItem({
         <Row>
           {/* <Col size="xs-4 sm-2"> */}
           <Col size="lg-12 md-12 sm-12">
+            <img src={image}></img>
             <h5>Book Name: {title}</h5>
             <h5>Authors: {authors}</h5>
             <h5>Year: {publishedDate}</h5>

@@ -20,6 +20,7 @@ class Search extends Component {
       // bookSearch: "",
       title: "",
       authors: "",
+      image: "",
       // synopsis: "",
       publishedDate: "",
       saveBookArr: []
@@ -79,7 +80,8 @@ class Search extends Component {
       API.saveBook({
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors[0],
-        publishedDate: book.volumeInfo.publishedDate
+        publishedDate: book.volumeInfo.publishedDate,
+        image: book.volumeInfo.imageLinks.thumbnail
       })
       // .then(() => this.loadBooks())
       .catch(err => console.log(err));
@@ -129,6 +131,8 @@ class Search extends Component {
                           title={data.volumeInfo.title}
                           authors={data.volumeInfo.authors}
                           publishedDate = {data.volumeInfo.publishedDate}
+                          image = {data.volumeInfo.imageLinks.thumbnail}
+
                           // thumbnail={"https://via.placeholder.com/150"}
                           
                           />    
