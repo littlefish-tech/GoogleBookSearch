@@ -20,7 +20,7 @@ class Search extends Component {
       // bookSearch: "",
       title: "",
       authors: "",
-      image: "",
+      image: "https://placehold.it/300x300",
       // synopsis: "",
       publishedDate: "",
       bookLink: "",
@@ -83,7 +83,8 @@ class Search extends Component {
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors[0],
         publishedDate: book.volumeInfo.publishedDate,
-        image: book.volumeInfo.imageLinks.thumbnail,
+        // image: book.volumeInfo.imageLinks.thumbnail,
+        image: !book.volumeInfo.imageLinks ? "NoImage.jpg" : book.volumeInfo.imageLinks.thumbnail,
         bookLink: book.volumeInfo.infoLink,
         description: book.volumeInfo.description
       })
@@ -134,8 +135,9 @@ class Search extends Component {
                           
                           title={data.volumeInfo.title}
                           authors={data.volumeInfo.authors}
-                          publishedDate = {data.volumeInfo.publishedDate}
-                          image = {data.volumeInfo.imageLinks.thumbnail}
+                          publishedDate={data.volumeInfo.publishedDate}
+                          // image={data.volumeInfo.imageLinks.thumbnail}
+                          image={!data.volumeInfo.imageLinks ? "NoImage.jpg" : data.volumeInfo.imageLinks.thumbnail}
                           description={data.volumeInfo.description}
                           bookLink={data.volumeInfo.infoLink}
                           description={data.volumeInfo.description}
