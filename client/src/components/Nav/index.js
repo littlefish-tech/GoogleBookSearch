@@ -33,6 +33,7 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
+import Search from "../../pages/Search";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,9 +73,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ScrollableTabsButtonForce() {
+export default function ScrollableTabsButtonForce(index) {
+
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+
+  const [value, setValue] = React.useState(index) 
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -92,8 +95,8 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-         <Tab label="Books" icon={<BookIcon/>} {...a11yProps(0)} to="/search"/>
-         <Tab label="Saved Books" icon={<FavoriteIcon />} {...a11yProps(1)} to="/saved"/>
+         <Tab label="Books" icon={<BookIcon/>} {...a11yProps(0)} href="/search"/>
+         <Tab label="Saved Books" icon={<FavoriteIcon />} {...a11yProps(1)} href="/saved"/>
         </Tabs>
       </AppBar>
     </div>
