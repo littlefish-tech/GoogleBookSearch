@@ -1,46 +1,31 @@
-import React from 'react';
-import Carousel from "react-material-ui-carousel";
-import {Paper} from '@material-ui/core';
- 
-function CarouselCard(props)
-{
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        }
-    ]
- 
-    return (
-        <Carousel>
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import harryPotter from "../../img/harryPotter.jpg"
+import book2 from "../../img/book2.jpg"
+import library3 from "../../img/library3.jpg"
 
-            <div>Carousel</div>
-            {/* {
-                items.map( item => {
-                    <Item item={item} />
-                })
-            } */}
-        </Carousel>
-
-    )
-}
  
-// function Item(props)
-// {
-//     return (
-//         <Paper>
-//             <h2>{props.item.name}</h2>
-//             <p>{props.item.description}</p>
- 
-//             <Button className="CheckButton">
-//                 Check it out!
-//             </Button>
-//         </Paper>
-//     )
-// }
+class CarouselCard extends Component {
+    render() {
+        return (
+            <Carousel>
+                <div>
+                    <img src={harryPotter} />
+                    <p className="legend">Legend 1</p>
+                </div>
+                <div>
+                    <img src={book2} />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <img src={library3} />
+                    <p className="legend">Legend 3</p>
+                </div>
+            </Carousel>
+        );
+    }
+};
 
 export default CarouselCard;
