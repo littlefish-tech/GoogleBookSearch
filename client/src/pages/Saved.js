@@ -10,21 +10,12 @@ import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/Se
 import Search from "./Search"
 // import { Input, TextArea, FormBtn } from "../components/Form";
 // import { handleDisplayBooks } from "../components/saveBookList"; 
-
+import IconTabs from "../components/Nav"
 
 class Saved extends Component {
     state={
       saveBookArr: []
   }
-
-// handleDisplayBooks = () => {
-//   API.getBooks()
-//   .then(res => <ChildComponent {...this.setState({ saveBookArr: res.data, title: "", authors: "", publishedDate: ""})}/>)
-//   console.log(this.state.saveBookArr)
-//   .catch(err => console.log(err));
-//   console.log("test");
-// }
-
 componentDidMount() {
   API.getBook()
   .then(res => this.setState({ saveBookArr: res.data}))
@@ -35,7 +26,6 @@ componentDidMount() {
     
 render() {
     return (
-    
         <Container fluid>
             <Row>
             <Col size="sm-12">
@@ -72,13 +62,8 @@ render() {
             </Col>
             </Row>
 
-        </Container>
-      
-      
+        </Container>    
     );
 }
-
-
-
 }
 export default Saved;

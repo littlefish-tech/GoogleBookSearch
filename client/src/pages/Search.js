@@ -10,42 +10,25 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 import Saved from "./Saved"
 import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
+import IconTabs from "../components/Nav"
 
 class Search extends Component {
-  // constructor(){
-  //   super();
-  //     this.
       state = {
       books: [],
-      // bookSearch: "",
       title: "",
       authors: "",
       image: "https://placehold.it/300x300",
-      // synopsis: "",
       publishedDate: "",
       bookLink: "",
       description: "",
       saveBookArr: []
     };
-  // }
-    // componentDidMount() {
-    //     this.loadBooks();
-    //   }
 
-    // loadBooks = () => {
-    // API.getBook()
-    //     .then(res =>
-    //     this.setState({ books: res.data, title: "", authors: "", publishedDate: "" })
-    //     )
-    //     .catch(err => console.log(err));
-    // };
-    
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
           [name]: value
         });
-        // console.log("changed")
       };
     handleFormSubmit = event => {
     event.preventDefault();
@@ -53,12 +36,6 @@ class Search extends Component {
       console.log(this.state.title);
       console.log('***************');
         API.searchGoogle(this.state.title)
-          // ({
-        // title: this.state.title,
-        // author: this.state.author,
-        // synopsis: this.state.synopsis
-        
-        // })
         .then(res => {
          // console.log(res);
           console.log(res.data.items)
@@ -73,12 +50,7 @@ class Search extends Component {
       console.log("saved!!!!!!")
       const book = this.state.books.find(book => book.id === id)
       console.log("this is the new book ", book)
-      // this.setState({saveBookArr: [...this.state.saveBookArr, {
-      //   title: book.volumeInfo.title,
-      //   authors: book.volumeInfo.authors[0],
-      //   publishedDate: book.volumeInfo.publishedDate
-      // }]})
-      // console.log(this.state.saveBookArr);
+
       API.saveBook({
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors[0],
@@ -93,11 +65,8 @@ class Search extends Component {
       
     };
 
-  
-
     render() {
       return (
-        
         <Container fluid>
           <Row>
             <Col size="md-12">
