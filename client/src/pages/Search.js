@@ -13,7 +13,9 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 import Saved from "./Saved"
 import { List, ListItem } from "../components/List";
 import { Link } from "react-router-dom";
-import IconTabs from "../components/Nav"
+import IconTabs from "../components/Nav";
+import CarouselCard from "../components/Carousel";
+
 
 class Search extends Component {
       state = {
@@ -74,6 +76,7 @@ render(){
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
+        <CarouselCard></CarouselCard>
         <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
       </Container>
     </React.Fragment>
