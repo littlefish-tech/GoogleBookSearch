@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 // import Button from "../components/Button";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+// import { Col, Row, Container } from "../components/Grid";
 import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/SearchedBookList";
 import { Input, TextArea, FormBtn } from "../components/Form";
 // import { SearchedBookList } from "../components/SearchedBookList";
@@ -65,76 +68,89 @@ class Search extends Component {
       
     };
 
-    render() {
-      return (
-        <Container fluid>
-          <Row>
-            <Col size="md-12">
-              <Jumbotron>
-                <h1>What Books Should I Read?</h1>
-              </Jumbotron>
-              <form>
-                <Input
-                  value={this.state.title}
-                  onChange={this.handleInputChange}
-                  name="title"
-                  placeholder="Title (required)"
-                />
-             
-                <FormBtn
-                  disabled={!(this.state.title)}
-                  onClick={this.handleFormSubmit}
-                >
-                  Submit Book
-                </FormBtn>
-              </form>
-            </Col>
-          </Row>
-          
-          <Row>
-            <Col size="xs-12">
-              {!this.state.books.length ? (
-                <h1 className="text-center">No Books to Display</h1>
-              ) : (
-                  <SearchedBookList>
-                    {this.state.books.map(data => {
-                      return (
-                        <React.Fragment key={data._id}>
-                          <SearchedBookListItem
-                          
-                          title={data.volumeInfo.title}
-                          authors={data.volumeInfo.authors}
-                          publishedDate={data.volumeInfo.publishedDate}
-                          // image={data.volumeInfo.imageLinks.thumbnail}
-                          image={!data.volumeInfo.imageLinks ? "NoImage.jpg" : data.volumeInfo.imageLinks.thumbnail}
-                          description={data.volumeInfo.description}
-                          bookLink={data.volumeInfo.infoLink}
-                          description={data.volumeInfo.description}
+render(){
+  return(
 
-                          // thumbnail={"https://via.placeholder.com/150"}
-                          
-                          />    
-                          <SaveBtn onClick = {() => this.handleSaveSubmit(data.id)}>
-                            Save
-                          </SaveBtn>
-                          {/* <Saved saveBookArr={this.state.saveBookArr}></Saved>   */}
-                          </React.Fragment>     
-                      ); 
-                     
-                    })}
-                  </SearchedBookList>
-                  
-                )}
-            </Col>
-          </Row>
-       
-        </Container>
-  
-      );
-    }
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
+      </Container>
+    </React.Fragment>
+
+  )
+}
 
 
     
 }
 
 export default Search;
+
+    // render() {
+    //   return (
+    //     <Container fluid>
+    //       <Row>
+    //         <Col size="md-12">
+    //           <Jumbotron>
+    //             <h1>What Books Should I Read?</h1>
+    //           </Jumbotron>
+    //           <form>
+    //             <Input
+    //               value={this.state.title}
+    //               onChange={this.handleInputChange}
+    //               name="title"
+    //               placeholder="Title (required)"
+    //             />
+             
+    //             <FormBtn
+    //               disabled={!(this.state.title)}
+    //               onClick={this.handleFormSubmit}
+    //             >
+    //               Submit Book
+    //             </FormBtn>
+    //           </form>
+    //         </Col>
+    //       </Row>
+          
+    //       <Row>
+    //         <Col size="xs-12">
+    //           {!this.state.books.length ? (
+    //             <h1 className="text-center">No Books to Display</h1>
+    //           ) : (
+    //               <SearchedBookList>
+    //                 {this.state.books.map(data => {
+    //                   return (
+    //                     <React.Fragment key={data._id}>
+    //                       <SearchedBookListItem
+                          
+    //                       title={data.volumeInfo.title}
+    //                       authors={data.volumeInfo.authors}
+    //                       publishedDate={data.volumeInfo.publishedDate}
+    //                       // image={data.volumeInfo.imageLinks.thumbnail}
+    //                       image={!data.volumeInfo.imageLinks ? "NoImage.jpg" : data.volumeInfo.imageLinks.thumbnail}
+    //                       description={data.volumeInfo.description}
+    //                       bookLink={data.volumeInfo.infoLink}
+    //                       description={data.volumeInfo.description}
+
+    //                       // thumbnail={"https://via.placeholder.com/150"}
+                          
+    //                       />    
+    //                       <SaveBtn onClick = {() => this.handleSaveSubmit(data.id)}>
+    //                         Save
+    //                       </SaveBtn>
+    //                       {/* <Saved saveBookArr={this.state.saveBookArr}></Saved>   */}
+    //                       </React.Fragment>     
+    //                   ); 
+                     
+    //                 })}
+    //               </SearchedBookList>
+                  
+    //             )}
+    //         </Col>
+    //       </Row>
+       
+    //     </Container>
+  
+    //   );
+    // }
