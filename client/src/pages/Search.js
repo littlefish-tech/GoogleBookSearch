@@ -11,11 +11,11 @@ import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/Se
 import { Input, TextArea, FormBtn } from "../components/Form";
 // import { SearchedBookList } from "../components/SearchedBookList";
 import Saved from "./Saved"
-import { List, ListItem } from "../components/List";
+import { List } from "../components/List";
 import { Link } from "react-router-dom";
 import IconTabs from "../components/Nav";
 import CarouselCard from "../components/Carousel";
-
+import ListItem from "../components/List/ListItem"
 
 class Search extends Component {
       state = {
@@ -73,13 +73,15 @@ class Search extends Component {
 render(){
   return(
 
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="sm">
-        <CarouselCard></CarouselCard>
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
-      </Container>
-    </React.Fragment>
+    // <React.Fragment>
+    //   <CssBaseline />
+    //   <Container maxWidth="sm">
+        <CarouselCard>
+
+        </CarouselCard>
+        // <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
+    //   </Container>
+    // </React.Fragment>
 
   )
 }

@@ -25,6 +25,8 @@ import Tab from '@material-ui/core/Tab';
 import PhoneIcon from '@material-ui/icons/Phone';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
+import Input from "../Form";
+import TextButtons from "../Button"
 
 const useStyles = makeStyles({
   root: {
@@ -52,8 +54,10 @@ export default function IconTabs() {
         textColor="primary"
         aria-label="icon tabs example"
       >
-        <Tab label="news" icon={<PersonPinIcon />} aria-label="person" href="/search"/>
+        <Tab label="books" icon={<PersonPinIcon />} aria-label="person" href="/search"/>
         <Tab label="Saved" icon={<FavoriteIcon />} aria-label="favorite" href="/saved"/>
+        <Input></Input>
+        <TextButtons></TextButtons>
       </Tabs>
     </Paper>
   );

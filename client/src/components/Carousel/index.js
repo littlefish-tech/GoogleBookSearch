@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-import harryPotter from "../../img/harryPotter.jpg"
-import book2 from "../../img/book2.jpg"
-import library3 from "../../img/library3.jpg"
+// import { Carousel } from 'react-responsive-carousel';
+import machineLearning from "../../img/machineLearning.jpg"
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+
 
  
 class CarouselCard extends Component {
     render() {
         return (
-            <Carousel>
-                <div>
-                    <img src={harryPotter} />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src={book2} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src={library3} />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel>
+          <Carousel
+          autoPlay={2000}
+          animationSpeed={1000}
+          infinite
+          >
+            <img src={machineLearning} />
+            <img src={machineLearning} />
+            <img src={machineLearning} />
+          </Carousel>
         );
+      }
     }
-};
-
 export default CarouselCard;
