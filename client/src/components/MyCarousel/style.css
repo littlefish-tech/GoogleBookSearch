@@ -1,0 +1,13 @@
+img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 300px;
+}
+
+@media (max-width: 800px) and (min-height: 400px) {
+    img {
+        width: 90%;
+        height: 300px;
+    }
+}

@@ -1,22 +1,30 @@
 import React, { Component } from "react";
 import Button from "../components/Button";
-import Jumbotron from "../components/Jumbotron";
+import MyCarousel from "../components/MyCarousel";
 // import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
+import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import { SearchedBookList,SaveBtn, SearchedBookListItem } from "../components/SearchedBookList";
 import Search from "./Search"
 // import { Input, TextArea, FormBtn } from "../components/Form";
 // import { handleDisplayBooks } from "../components/saveBookList"; 
-import IconTabs from "../components/Nav"
-import ListItem from "../components/List/ListItem"
+
 
 class Saved extends Component {
     state={
       saveBookArr: []
   }
+
+// handleDisplayBooks = () => {
+//   API.getBooks()
+//   .then(res => <ChildComponent {...this.setState({ saveBookArr: res.data, title: "", authors: "", publishedDate: ""})}/>)
+//   console.log(this.state.saveBookArr)
+//   .catch(err => console.log(err));
+//   console.log("test");
+// }
+
 componentDidMount() {
   API.getBook()
   .then(res => this.setState({ saveBookArr: res.data}))
@@ -27,12 +35,11 @@ componentDidMount() {
     
 render() {
     return (
+    
         <Container fluid>
             <Row>
             <Col size="sm-12">
-              <Jumbotron>
-                <h1>Books On My List</h1>
-              </Jumbotron>
+             <MyCarousel />
               <Row>
           <Col size="md-12">
           {this.state.saveBookArr.length ? (
@@ -63,8 +70,13 @@ render() {
             </Col>
             </Row>
 
-        </Container>    
+        </Container>
+      
+      
     );
 }
+
+
+
 }
 export default Saved;
