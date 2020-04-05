@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "../components/Button";
-import Jumbotron from "../components/Jumbotron";
+import MyCarousel from "../components/MyCarousel";
 // import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -39,9 +39,7 @@ render() {
         <Container fluid>
             <Row>
             <Col size="sm-12">
-              <Jumbotron>
-                <h1>Books On My List</h1>
-              </Jumbotron>
+             <MyCarousel />
               <Row>
           <Col size="md-12">
           {this.state.saveBookArr.length ? (
