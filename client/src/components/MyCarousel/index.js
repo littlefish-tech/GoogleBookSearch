@@ -18,11 +18,12 @@ export default class MyCarousel extends Component {
   animationSpeed={1000}
   infinite
 >
-  <img src={lib1} />
-  <img src={lib2} />
-  <img src={lib3} />
-  <img src={lib4} />
-  <img src={lib5} />
+  <img className="carouselImg" src={lib1} />
+  <img className="carouselImg" src={lib2} />
+  <img className="carouselImg" src={lib3} />
+  <img className="carouselImg" src={lib4} />
+  <img className="carouselImg" src={lib5} />
+
 </Carousel>
    );
   }
