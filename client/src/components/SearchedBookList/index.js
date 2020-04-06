@@ -41,7 +41,7 @@ export function SearchedBookListItem({
         <Row>
           {/* <Col size="xs-4 sm-2"> */}
           <Col size="lg-12 md-12 sm-12">
-            <img src={image}></img>
+            <img src={image} className="bookImg"></img>
             <h5>Book Name: {title}</h5>
             <h5>Authors: {authors}</h5>
             <h5>Year: {publishedDate}</h5>

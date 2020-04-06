@@ -49,7 +49,7 @@ render() {
                   <ListItem key={book._id}>
                     {/* <a href={book.bookLink}> */}
                       <strong>
-                      <img src={book.image}></img>
+                      <img src={book.image} className="bookImg"></img>
                       <div>Book Name:    {book.title}</div>
                      <div>Author:    {book.authors}</div>
                       <div>Published Year:    {book.publishedDate}</div>

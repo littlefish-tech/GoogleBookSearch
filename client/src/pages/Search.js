@@ -107,7 +107,7 @@ class Search extends Component {
                   value={this.state.title}
                   onChange={this.handleInputChange}
                   name="title"
-                  placeholder="Title (required)"
+                  placeholder="Type a Book Title (Required)"
                 />
              
                 <FormBtn
