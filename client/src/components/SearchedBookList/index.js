@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 import { PromiseProvider } from "mongoose";
-
+import "./style.css";
 // export function SaveBtn(props) {
 //   return (
 //   <button className = "save-btn" role = "button">{props.children}</button>
@@ -41,13 +41,13 @@ export function SearchedBookListItem({
         <Row>
           {/* <Col size="xs-4 sm-2"> */}
           <Col size="lg-12 md-12 sm-12">
-            <img src={image} className="bookImg"></img>
-            <h5>Book Name: {title}</h5>
-            <h5>Authors: {authors}</h5>
-            <h5>Year: {publishedDate}</h5>
-            <h5><div>Description: </div>
+            <img className="bookDetail" src={image} className="bookImg"></img>
+            <h5 className="bookDetail">Book Name:  {title}</h5>
+            <h5 className="bookDetail">Authors:  {authors}</h5>
+            <h5 className="bookDetail">Year:  {publishedDate}</h5>
+            <h5 className="bookDetail"><div>Description: </div>
             <div>{description}</div></h5>
-            <a href={bookLink}> Read More</a>
+            <a href={bookLink} className="bookDetail"> Read More</a>
             {/* <div>{thumbnail}</div> */}
         {/* <SaveBtn>Save</SaveBtn> */}
           </Col>

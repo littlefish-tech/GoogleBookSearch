@@ -103,6 +103,7 @@ class Search extends Component {
             <Col size="md-12">
               <MyCarousel />
               <form>
+                <Row>
                 <Input
                   value={this.state.title}
                   onChange={this.handleInputChange}
@@ -116,6 +117,7 @@ class Search extends Component {
                 >
                   Search
                 </FormBtn>
+                </Row>
               </form>
             </Col>
           </Row>

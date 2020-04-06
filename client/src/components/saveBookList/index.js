@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 import { PromiseProvider } from "mongoose";
+import "./style.css";
 
 
 const SavedBookList = (props) => {
