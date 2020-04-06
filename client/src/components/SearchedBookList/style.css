@@ -1,9 +1,32 @@
-.list-group-item {
+/* .list-group-item {
     float: none;
     margin: 0 auto;
     margin-bottom: 10px;
-}
+} */
 .bookDetail {
     font-size: 15px;
     font-family: 'Gotu', sans-serif;
+}
+
+.searchBookDisplay{
+   margin-left: 10%;
+   margin-right: 10%;
+   text-align: center;
+}
+
+.saveBtnName {
+    text-align: center;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    color: gray;
+    margin-bottom: 5px;
+
+}
+
+@media (max-width: 800px) and (min-height: 400px) {
+    .searchBookDisplay {
+        width: 80%;
+    }
+
 }

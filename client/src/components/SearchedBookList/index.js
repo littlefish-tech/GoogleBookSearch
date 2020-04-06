@@ -10,14 +10,14 @@ import "./style.css";
 
 export function SaveBtn(props) {
   return (
-    <button {...props} style={{ float: "left", width: 60, marginBottom: 10 }} className="btn btn-success">
+    <button {...props} className="btn btn-success saveBtnName">
       {props.children}
     </button>
   );
 }
 // BookList renders a bootstrap list item
 export function SearchedBookList({ children }) {
-  return <ul className="list-group">{children}</ul>;
+  return <ul className="searchBookDisplay" >{children}</ul>;
 }
 
 // BookListItem renders a bootstrap list item containing data from the book api call

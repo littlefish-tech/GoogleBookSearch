@@ -38,7 +38,7 @@ render() {
     
         <Container fluid>
             <Row>
-            <Col size="sm-12">
+            <Col size="md-12">
              <MyCarousel />
               <Row>
           <Col size="md-12">
@@ -49,13 +49,13 @@ render() {
                   <ListItem key={book._id}>
                     {/* <a href={book.bookLink}> */}
                       <strong>
-                      <img src={book.image} className="bookImg"></img>
-                      <div>Book Name:    {book.title}</div>
-                     <div>Author:    {book.authors}</div>
-                      <div>Published Year:    {book.publishedDate}</div>
-                      <div>Description:  </div>
-                      <div>{book.description}</div>
-                      <a href={book.bookLink}> Read More</a>
+                      <img className="bookDetail" src={book.image} className="bookImg"></img>
+                      <div className="bookDetail">Book Name:    {book.title}</div>
+                     <div className="bookDetail">Author:    {book.authors}</div>
+                      <div className="bookDetail">Published Year:    {book.publishedDate}</div>
+                      <div className="bookDetail">Description:  </div>
+                      <div className="bookDetail">{book.description}</div>
+                      <a href={book.bookLink} className="bookDetail"> Read More</a>
                       </strong>
                     {/* </a> */}
                   </ListItem>

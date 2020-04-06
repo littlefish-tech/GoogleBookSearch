@@ -37,14 +37,14 @@
     margin-top: 10px;
   } */
 
-  .cardContainer {
+  /* .cardContainer {
     margin: auto;
     align-items: center;
-  }
+  } */
 
-  .cardItem {
+  /* .cardItem {
     margin: 10px;
-  }
+  } */
 
   .bookImg {
     margin-top: 10px;
@@ -52,3 +52,34 @@
     height: 200px;
     width: 120px;
   }
+
+  .bookDetail {
+    font-size: 15px;
+    font-family: 'Gotu', sans-serif;
+}
+
+.SavedBook{
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+   width: 80%
+}
+
+.SavedOneBook{
+  margin-bottom: 10px;
+}
+/* .saveBtnName {
+    text-align: center;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    color: gray;
+    margin-bottom: 5px;
+
+} */
+
+@media (max-width: 800px) and (min-height: 400px) {
+    .SavedBook {
+        width: 80%;
+    }
+}

@@ -4,7 +4,7 @@ import "./style.css";
 
 export function ListItem({ children }) {
   return (
-    <div className="card col-12 col-md-12 col-lg-5 cardItem">
+    <div className="card SavedOneBook">
       {children}
     </div>
   )
@@ -12,10 +12,8 @@ export function ListItem({ children }) {
 
 export function List({ children }) {
   return (
-    <div className="container cardList">
-      <div className="row">
+    <div className="cardList SavedBook">
         {children}
-      </div>
     </div>
   )
 }
