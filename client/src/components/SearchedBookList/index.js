@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "../Grid";
 import { PromiseProvider } from "mongoose";
 import "./style.css";
+import Card from 'react-bootstrap/Card'
 // export function SaveBtn(props) {
 //   return (
 //   <button className = "save-btn" role = "button">{props.children}</button>
@@ -36,11 +37,11 @@ export function SearchedBookListItem({
 {
   
   return (
-    <li className="list-group-item">
+    <Card>
       <Container>
         <Row>
           {/* <Col size="xs-4 sm-2"> */}
-          <Col size="lg-12 md-12 sm-12">
+          <Col size="md-12">
             <img className="bookDetail" src={image} className="bookImg"></img>
             <h5 className="bookDetail">Book Name:  {title}</h5>
             <h5 className="bookDetail">Authors:  {authors}</h5>
@@ -53,6 +54,6 @@ export function SearchedBookListItem({
           </Col>
         </Row>
       </Container>
-    </li>
+    </Card>
   );
 }

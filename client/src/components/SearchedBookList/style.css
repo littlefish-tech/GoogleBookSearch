@@ -9,9 +9,10 @@
 }
 
 .searchBookDisplay{
-   margin-left: 10%;
-   margin-right: 10%;
+   margin-left: 8%;
+   /* margin-right: auto; */
    text-align: center;
+   width: 80%;
 }
 
 .saveBtnName {
@@ -27,6 +28,7 @@
 @media (max-width: 800px) and (min-height: 400px) {
     .searchBookDisplay {
         width: 80%;
+        margin-left: 3%;
     }
 
 }

@@ -123,7 +123,7 @@ class Search extends Component {
           </Row>
           
           <Row>
-            <Col size="xs-12">
+            <Col size="md-12">
               {!this.state.books.length ? (
                 <h1 className="text-center"></h1>
               ) : (
