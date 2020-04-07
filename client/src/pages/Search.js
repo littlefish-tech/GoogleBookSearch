@@ -98,32 +98,34 @@ class Search extends Component {
     render() {
       return (
         
-        <Container fluid>
+        <Container fluid="md">
           <Row>
             <Col size="md-12">
               <MyCarousel />
               <form>
+                <Row>
                 <Input
                   value={this.state.title}
                   onChange={this.handleInputChange}
                   name="title"
-                  placeholder="Title (required)"
+                  placeholder="Type a Book Title (Required)"
                 />
              
-                <FormBtn
+                <FormBtn xs="5"
                   disabled={!(this.state.title)}
                   onClick={this.handleFormSubmit}
                 >
-                  Submit Book
+                  Search
                 </FormBtn>
+                </Row>
               </form>
             </Col>
           </Row>
           
           <Row>
-            <Col size="xs-12">
+            <Col size="md-12">
               {!this.state.books.length ? (
-                <h1 className="text-center">No Books to Display</h1>
+                <h1 className="text-center"></h1>
               ) : (
                   <SearchedBookList>
                     {this.state.books.map(data => {

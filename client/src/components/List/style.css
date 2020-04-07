@@ -1,34 +1,85 @@
-.list-overflow-container {
+/* .list-overflow-container {
     max-height: 545px;
     border: 1px #DDDDDD solid;
     border-radius: 4px;
     overflow-y: scroll;
     overflow-x: hidden;
-  }
+    width: 80%;
+    margin: auto;
+  } */
   
-  .list-overflow-container ul {
+  /* .list-overflow-container ul {
     margin: 0;
-  }
+  } */
   
-  .list-overflow-container li {
+  /* .list-overflow-container li {
     border-radius: 0px;
     border-left: none;
     border-right: none;
   }
-  
-  .list-overflow-container li * {
+   */
+  /* .list-overflow-container li * {
     cursor: pointer;
   }
   
   .list-overflow-container li a {
     color: #2A878C;
   }
-  
-  .list-overflow-container li:first-child {
+   */
+  /* .list-overflow-container li:first-child {
     border-top: none;
   }
   
   .list-overflow-container li:last-child {
     border-bottom: none;
+  } */
+  /* .list-group-item {
+    margin-top: 10px;
+  } */
+
+  /* .cardContainer {
+    margin: auto;
+    align-items: center;
+  } */
+
+  /* .cardItem {
+    margin: 10px;
+  } */
+
+  .bookImg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 200px;
+    width: 120px;
   }
-  
+
+  .bookDetail {
+    font-size: 15px;
+    font-family: 'Gotu', sans-serif;
+}
+
+.SavedBook{
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+   width: 80%
+}
+
+.SavedOneBook{
+  margin-bottom: 10px;
+}
+/* .saveBtnName {
+    text-align: center;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    color: gray;
+    margin-bottom: 5px;
+
+} */
+
+@media (max-width: 800px) and (min-height: 400px) {
+    .SavedBook {
+        width: 80%;
+    }
+}

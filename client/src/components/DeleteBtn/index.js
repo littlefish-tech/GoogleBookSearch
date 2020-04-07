@@ -6,7 +6,7 @@ import "./style.css";
 function DeleteBtn(props) {
   return (
     <button className="delete-btn" {...props} role="button" tabIndex="0">
-      {props.children}
+      UNSAVE
     </button>
   );
 }

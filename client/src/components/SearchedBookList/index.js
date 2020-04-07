@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 import { PromiseProvider } from "mongoose";
-
+import "./style.css";
+import Card from 'react-bootstrap/Card'
 // export function SaveBtn(props) {
 //   return (
 //   <button className = "save-btn" role = "button">{props.children}</button>
@@ -10,14 +11,14 @@ import { PromiseProvider } from "mongoose";
 
 export function SaveBtn(props) {
   return (
-    <button {...props} style={{ float: "left", width: 60, marginBottom: 10 }} className="btn btn-success">
+    <button {...props} className="btn btn-success saveBtnName">
       {props.children}
     </button>
   );
 }
 // BookList renders a bootstrap list item
 export function SearchedBookList({ children }) {
-  return <ul className="list-group">{children}</ul>;
+  return <ul className="searchBookDisplay" >{children}</ul>;
 }
 
 // BookListItem renders a bootstrap list item containing data from the book api call
@@ -36,23 +37,23 @@ export function SearchedBookListItem({
 {
   
   return (
-    <li className="list-group-item">
+    <Card>
       <Container>
         <Row>
           {/* <Col size="xs-4 sm-2"> */}
-          <Col size="lg-12 md-12 sm-12">
-            <img src={image}></img>
-            <h5>Book Name: {title}</h5>
-            <h5>Authors: {authors}</h5>
-            <h5>Year: {publishedDate}</h5>
-            <h5><div>Description: </div>
+          <Col size="md-12">
+            <img className="bookDetail" src={image} className="bookImg"></img>
+            <h5 className="bookDetail">Book Name:  {title}</h5>
+            <h5 className="bookDetail">Authors:  {authors}</h5>
+            <h5 className="bookDetail">Year:  {publishedDate}</h5>
+            <h5 className="bookDetail"><div>Description: </div>
             <div>{description}</div></h5>
-            <a href={bookLink}> Read More</a>
+            <a href={bookLink} className="bookDetail"> Read More</a>
             {/* <div>{thumbnail}</div> */}
         {/* <SaveBtn>Save</SaveBtn> */}
           </Col>
         </Row>
       </Container>
-    </li>
+    </Card>
   );
 }
