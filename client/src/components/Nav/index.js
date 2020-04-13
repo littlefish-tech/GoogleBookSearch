@@ -70,8 +70,8 @@ export default function Nav() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Search a Book" {...a11yProps(0)} href="/Search" />
-          <Tab label="saved books" {...a11yProps(1)} href="/Saved" />
+          <Tab label="Search a Book" {...a11yProps(0)} className="aLink" href="/Search" />
+          <Tab label="saved books" {...a11yProps(1)} className="aLink" href="/Saved" />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -89,22 +89,3 @@ export default function Nav() {
     </div>
   );
 }
-
-
-// import React from "react";
-// import "./style.css";
-
-// function Nav(props) {
-//   return (
-//     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-//       <a className="navbar-brand btn-outline-info clickBut" href="/Saved">
-//         Saved Reading
-//       </a>
-//       <a className="navbar-brand btn-outline-info clickBut" href="/Search">
-//        Back to Search
-//       </a>
-//     </nav>
-//   );
-// }
-
-// export default Nav;
